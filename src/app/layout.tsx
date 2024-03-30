@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { app } from "@/utils/firebase/firebase";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log(app);
   return (
     <html lang="en">
-      <body className={`${inter.className} h-screen w-screen`}>{children}</body>
+      <body className={`${inter.className} min-h-screen`}>{children}</body>
     </html>
   );
 }
